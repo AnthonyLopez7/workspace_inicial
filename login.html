@@ -12,42 +12,70 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
+  <link href="css/login.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="login-wrap">
+      <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Inicie sesión</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Regístrate</label>
+        <div class="login-form">
+          <div class="sign-in-htm">
+            <div class="group">
+              <label for="user" class="label">Nombre de usuario</label>
+              <input id="user" type="text" class="input" required>
+            </div>
+            <div class="group">
+              <label for="pass" class="label">Contraseña</label>
+              <input id="pass" type="password" class="input" data-type="password" required>
+            </div>
+            <div class="group">
+              <input id="check" type="checkbox" class="check" checked>
+              <label for="check"><span class="icon"></span> Mantenerme conectado</label>
+            </div>
+            <div class="group">
+              <input type="submit" class="button" value="Iniciar sesión">
+            </div>
+            <div class="hr"></div>
+            <div class="foot-lnk">
+              <a href="#forgot">¿Olvidó su contraseña?</a>
+            </div>
+          </div>
+          <div class="sign-up-htm">
+            <div class="group">
+              <label for="user" class="label">Nombre de usuario</label>
+              <input id="user" type="text" class="input">
+            </div>
+            <div class="group">
+              <label for="pass" class="label">Contraseña</label>
+              <input id="pass" type="password" class="input" data-type="password">
+            </div>
+            <div class="group">
+              <label for="pass" class="label">Confirmar contraseña</label>
+              <input id="pass" type="password" class="input" data-type="password">
+            </div>
+            <div class="group">
+              <label for="pass" class="label">Correo electrónico</label>
+              <input id="pass" type="text" class="input">
+            </div>
+            <div class="group">
+              <input type="submit" class="button" value="Registrarse">
+            </div>
+            <div class="hr"></div>
+            <div class="foot-lnk">
+              <label for="tab-1">¿Ya eres miembro?</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
+
 </html>
