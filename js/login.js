@@ -16,6 +16,6 @@ function validar() {
         alert("Debe completar todos los campos");
     }
     else {
-        location.href='index.html'
+        location.href='home.html'
     }
 }
