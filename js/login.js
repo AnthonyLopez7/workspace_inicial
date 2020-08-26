@@ -1,14 +1,4 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
-// onclick="location.href='index.html'"
-// onclick="validation"
-
-// document.addEventListener("DOMContentLoaded", function(e){
-// });
-
-function validar() {
+function validar(user) {
     var usuario = document.getElementById("usuario").value;
     var Contraseña = document.getElementById("pass").value;
 
@@ -16,6 +6,7 @@ function validar() {
         alert("Debe completar todos los campos");
     }
     else {
-        location.href='home.html'
+        localStorage.setItem('user', user);
+        location.href = 'home.html'
     }
 }
