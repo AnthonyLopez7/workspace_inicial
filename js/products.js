@@ -1,9 +1,11 @@
 const ORDER_ASC_BY_COST = "Asc";
 const ORDER_DESC_BY_COST = "Des";
+const ORDER_DESC_BY_RELEVANCIA = "Rel";
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 var currentCategoriesArray = [];
+var products = [];
 
 // mostrar nombre de usario que inicio sesión
 var data = localStorage.getItem("user");
@@ -19,7 +21,11 @@ function sortCategories(criteria, array) {
         result = array.sort(function (a, b) {
             return b.cost - a.cost;
         });
-    } 
+    } else if (criteria === ORDER_DESC_BY_RELEVANCIA) {
+        result = array.sort(function (a, b) {
+            return b.soldCount - a.soldCount;
+        });
+    }
 
     return result;
 }
@@ -32,17 +38,17 @@ function showProductsList() {
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(products.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))) {
-                
+
             htmlContentToAppend += `
             <div class="containerScreen">
                 <hr>
-                <div class="productContainer">
+                <div class="productContainer" data-filter-name="`+ products.name + `" data-filter-desc="` + products.description + `" >
                     <div class="itemsContainer">
                         <div class="imageContainer">
                             <img src="` + products.imgSrc + `" alt="Image of vehicle loading" class="image">
                         </div>
                         <div class="informationContainer">
-                            <div class="nameDescription">
+                            <div class="nameDescription" id="myDIV">
                                 <h4 class="mb-1">`+ products.name + `</h4>
                                 <p>`+ products.description + `</p>
                             </div>
@@ -58,6 +64,20 @@ function showProductsList() {
         }
 
         document.getElementById("product_container").innerHTML = htmlContentToAppend;
+        filterProducts(products);
+    }
+}
+
+function filterProducts(products) {
+    inputFilter = document.getElementById("myInputSearch").value.toUpperCase();
+
+    for (var i = 0; i < products.length; i += 1) {
+        if (products[i].dataset.filterName.toUpperCase().includes(inputFilter)
+            || products[i].dataset.filterDesc.toUpperCase().includes(inputFilter)) {
+            products[i].parentNode.style.display = "block";
+        } else {
+            products[i].parentNode.style.display = "none";
+        }
     }
 }
 
@@ -72,15 +92,17 @@ function sortAndShowProducts(sortCriteria, categoriesArrays) {
 
     //Muestro las productos ordenadas
     showProductsList();
+    filterProducts(products)
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    
+
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             currentCategoriesArray = resultObj.data;
             showProductsList(currentCategoriesArray);
         }
+        products = document.getElementById("product_container").getElementsByClassName("productContainer");
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function () {
@@ -122,5 +144,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_COST);
+    });
+
+    document.getElementById("sortRelevancia").addEventListener("click", function () {
+        sortAndShowProducts(ORDER_DESC_BY_RELEVANCIA);
+    });
+
+    document.getElementById("myInputSearch").addEventListener("keyup", function () {
+        filterProducts(products);
     });
 });

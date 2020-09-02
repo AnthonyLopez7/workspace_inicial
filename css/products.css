@@ -44,44 +44,128 @@
 /* filtrado para rango de precio */
 .filterContainer {
     max-width: 100%;
-    border: 1px solid red;
+    border-bottom: 1px solid #ced4da;
+    margin: 0 3%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 .priceRangeFilter {
+    border-bottom: 1px solid #ced4da;
+    padding: 1%;
+    margin-bottom: 1%;
+    width: 36%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50%;
-    bottom: 0;
-    border: 1px solid red;
+}
+
+.rangeFilterInputs {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2%;
 }
 
 .priceRangeFilter p {
-    margin: 0;
+    margin: 0 5% 0 0;
+    color: #d61c6c;
     padding: 0;
 }
 
 .separatorMinMax {
     width: 30px;
     border-bottom: 1px solid #ced4da;
+    margin: 0 1%;
 }
 
 .form-control {
     width: 100px;
-    margin: 1%;
 }
 
 .btnFiltersContainer {
-    margin-left: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .btnFilters {
     border: 1px solid #ced4da;
-    background-color: transparent;
+    background-color: #fc4e9934;
+    color: #d61c6c;
+    margin-left: 2%;
     border-radius: 10%;
     height: 38px;
     width: 70px;
 }
+.btnFilters:hover {
+    background: rgba(231, 141, 160, 0.164);
+}
+.btnFilters::after {
+    background: #e78da1;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.formulario input[type="radio"] {
+    display: none;
+}
+.formulario .radio label {
+    color: #d61c6c;
+    background-color: #fc4e9934;
+    padding: 5px 15px;
+    display: inline-block;
+    position: relative;
+    font-size: 1em;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 0 0 1%;
+}
+.formulario .radio p {
+    margin: 0 1% 0;
+    color: #d61c6c;
+}
+
+.formulario {
+    width: 100%;
+}
+.radio {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.formulario .radio label:hover {
+    background: rgba(231, 141, 160, 0.164);
+}
+
+.formulario .radio label:before {
+    content: "";
+}
+
+.formulario input[type="radio"]:checked  + label {
+    background: #e78da1;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.searchAndFilter {
+    display: flex;
+    width: 100%;
+    padding: 0 13px;
+    justify-content: space-between;
+}
+.mySearch {
+    background: url(https://www.sitewelder.com/art2012/logo-big-searchoptimization.png) no-repeat 100%;
+    background-size: 26px;
+    background-position: 7px 6px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 50%; /* Full-width */
+    height: 40px;
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }

@@ -30,22 +30,31 @@
   <div>
     <div class="filterContainer">
       <div class="priceRangeFilter">
-        <p>Precio:</p>
-        <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
-        <div class="separatorMinMax"></div>
-        <input class="form-control" type="number" placeholder="max." id="rangeFilterPriceMax">
-        <div class="btnFiltersContainer" role="group">
+        <div class="rangeFilterInputs">
+          <p>Precio:</p>
+          <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+          <div class="separatorMinMax"></div>
+          <input class="form-control" type="number" placeholder="max." id="rangeFilterPriceMax">
           <button class="btnFilters" id="rangeFilterCount">Filtrar</button>
           <button class="btnFilters" id="clearRangeFilter">Limpiar</button>
         </div>
       </div>
-      <div>
-        <label class="btn btn-light active" id="sortAsc">
-          <input type="radio" name="options" autocomplete="off" checked>Asc
-        </label>
-        <label class="btn btn-light" id="sortDesc">
-          <input type="radio" name="options" autocomplete="off">Des
-        </label>
+      <div class="searchAndFilter">
+        <input type="text" class="mySearch" id="myInputSearch" placeholder="Escribe aquí">
+        <form action="" class="formulario">
+          <div class="radio">
+            <p>Ordenar:</p>
+
+            <input type="radio" name="options" id="ascendente">
+            <label for="ascendente" id="sortAsc">Ascendente</label>
+    
+            <input type="radio" name="options" id="descendente">
+            <label for="descendente" id="sortDesc">descendente</label>
+    
+            <input type="radio" name="options" id="relevancia">
+            <label for="relevancia" id="sortRelevancia">Relevancia</label>
+          </div>
+        </form>
       </div>
     </div>
     <div class="container p-5" id="product_container"></div>
