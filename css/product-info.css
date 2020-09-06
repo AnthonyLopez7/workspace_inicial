@@ -1,0 +1,68 @@
+.commentsListAndAdd {
+    width: 90%;
+    padding: 0;
+}
+/* lista de comentarios */
+.containerRating {
+    justify-content: center;
+}
+
+.containerComments {
+    border-top: 1px solid #c2c2c2;
+    padding: .7em 0 .7em;
+    width: 100%;
+    flex-direction: column;
+}
+
+.ratingDescription {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerComments p {
+    padding: 0;
+}
+
+.dateTime {
+    display: flex;
+    justify-content: flex-end;
+}
+/* añadir comentario y valoración */
+.addComment {
+    width: 100%;
+}
+
+.addComment textarea {
+    width: 100%;
+}
+
+.valorationAndSave {
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerValoration {
+    display: flex;
+    align-items: center;
+}
+
+.valorationAndSave button {
+    border: 1px solid #ced4da;
+    padding: 0 2%;
+    background-color: #fc4e9934;
+    color: #d61c6c;
+    border-radius: 7%;
+    height: 38px;
+    font-weight: 600;
+}
+.valorationAndSave button:hover {
+    background: rgba(231, 141, 160, 0.164);
+}
+/* nuevo comentario */
+.containerNewComments {
+    border-top: 1px solid #c2c2c2;
+    padding: .7em 0 .7em;
+    width: 100%;
+    flex-direction: column;
+}

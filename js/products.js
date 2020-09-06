@@ -40,26 +40,28 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-            <div class="containerScreen">
-                <hr>
-                <div class="productContainer" data-filter-name="`+ products.name + `" data-filter-desc="` + products.description + `" >
-                    <div class="itemsContainer">
-                        <div class="imageContainer">
-                            <img src="` + products.imgSrc + `" alt="Image of vehicle loading" class="image">
-                        </div>
-                        <div class="informationContainer">
-                            <div class="nameDescription" id="myDIV">
-                                <h4 class="mb-1">`+ products.name + `</h4>
-                                <p>`+ products.description + `</p>
+            <a href="product-info.html" class="list-group-item-action ancla">
+                <div class="containerScreen">
+                    <hr>
+                    <div class="productContainer" data-filter-name="`+ products.name + `" data-filter-desc="` + products.description + `" >
+                        <div class="itemsContainer">
+                            <div class="imageContainer">
+                                <img src="` + products.imgSrc + `" alt="Image of vehicle loading" class="image">
                             </div>
-                            <div class="coinPrice">
-                                <small class="text-muted">` + products.soldCount + ` artículos vendidos</small>
-                                <p>`+ products.currency + ` ` + products.cost + `</p>
-                            <div/>
+                            <div class="informationContainer">
+                                <div class="nameDescription" id="myDIV">
+                                    <h4 class="mb-1">`+ products.name + `</h4>
+                                    <p>`+ products.description + `</p>
+                                </div>
+                                <div class="coinPrice">
+                                    <small class="text-muted">` + products.soldCount + ` artículos vendidos</small>
+                                    <p>`+ products.currency + ` ` + products.cost + `</p>
+                                <div/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
             `
         }
 

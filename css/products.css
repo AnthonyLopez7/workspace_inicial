@@ -103,7 +103,7 @@
 .btnFilters:hover {
     background: rgba(231, 141, 160, 0.164);
 }
-.btnFilters::after {
+.btnFilters:after {
     background: #e78da1;
     border-radius: 2px;
     color: #fff;
@@ -169,3 +169,7 @@
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
   }
+/* redireccion a product-info */
+.itemsContainer:hover {
+    background: rgba(231, 141, 160, 0.164);
+}
