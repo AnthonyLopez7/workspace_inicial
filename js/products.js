@@ -13,14 +13,17 @@ document.getElementById("name").innerHTML = data
 
 function sortCategories(criteria, array) {
     let result = [];
+    // Ordenar de forma ascendente por el costo
     if (criteria === ORDER_ASC_BY_COST) {
         result = array.sort(function (a, b) {
             return a.cost - b.cost;
         });
+    // Ordenar de forma descendente por el costo
     } else if (criteria === ORDER_DESC_BY_COST) {
         result = array.sort(function (a, b) {
             return b.cost - a.cost;
         });
+    // Ordenar por relevancia (cantidad de vendidos)
     } else if (criteria === ORDER_DESC_BY_RELEVANCIA) {
         result = array.sort(function (a, b) {
             return b.soldCount - a.soldCount;
@@ -36,6 +39,7 @@ function showProductsList() {
     for (let i = 0; i < currentCategoriesArray.length; i++) {
         let products = currentCategoriesArray[i];
 
+        // condicional para filtrar en un mínimo y máximo de precios
         if (((minCount == undefined) || (minCount != undefined && parseInt(products.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))) {
 
@@ -71,8 +75,10 @@ function showProductsList() {
 }
 
 function filterProducts(products) {
+    // obtenemos el el valor del input search y convertimos sus caracteres en mayúscula
     inputFilter = document.getElementById("myInputSearch").value.toUpperCase();
 
+    // ciclo para que al filtrar un vehículo aparezca en pantalla solamente el vehículo filtrado
     for (var i = 0; i < products.length; i += 1) {
         if (products[i].dataset.filterName.toUpperCase().includes(inputFilter)
             || products[i].dataset.filterDesc.toUpperCase().includes(inputFilter)) {
@@ -98,7 +104,7 @@ function sortAndShowProducts(sortCriteria, categoriesArrays) {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
+    // Obtener productos al cargar la página
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             currentCategoriesArray = resultObj.data;
@@ -107,9 +113,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
         products = document.getElementById("product_container").getElementsByClassName("productContainer");
     });
 
+    // Filtrar por rango de precios
     document.getElementById("rangeFilterCount").addEventListener("click", function () {
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+        // Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+        // de productos por categoría.
         minCount = document.getElementById("rangeFilterPriceMin").value;
         maxCount = document.getElementById("rangeFilterPriceMax").value;
 
@@ -130,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
 
+    // Limpiar filtro por rango de precios y mostrar nuevamente todos los productos 
     document.getElementById("clearRangeFilter").addEventListener("click", function () {
         document.getElementById("rangeFilterPriceMin").value = "";
         document.getElementById("rangeFilterPriceMax").value = "";
@@ -140,18 +148,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
 
+    // Ordenamos de forma ascendente por el precio
     document.getElementById("sortAsc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_ASC_BY_COST);
     });
 
+    // Ordenamos de forma descendente por el precio
     document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_COST);
     });
 
+    // Ordenamos por relevancia en función de los vehículos vendidos
     document.getElementById("sortRelevancia").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_RELEVANCIA);
     });
 
+    // Filtramos vehículos de acuerdo a los caracteres ingresados en el input search
     document.getElementById("myInputSearch").addEventListener("keyup", function () {
         filterProducts(products);
     });
