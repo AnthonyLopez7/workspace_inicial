@@ -96,7 +96,7 @@ function addComents() {
                 </div>
                 <p>`+ commentary + `</p>
                 <div class="dateTime">
-                    <p class="p-0">`+ anio+"-"+(mes + 1)+"-"+dia+" "+hora+":"+min+":"+seg + `</p>
+                    <p class="p-0">`+ anio + "-" + (mes + 1) + "-" + dia + " " + hora + ":" + min + ":" + seg + `</p>
                 </div>
             </div>
             `
@@ -105,9 +105,43 @@ function addComents() {
     }
 }
 
+function showRelatedProduct(relatedProductArray) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productList = resultObj.data;
+
+            let html = "";
+
+            for (let i = 0; i < relatedProductArray.length; i++) {
+                let relatedProductPosition = relatedProductArray[i];
+                let relatedProduct = productList[relatedProductPosition];
+
+                html += `
+                <div class="containerRelated">
+                    <div class="containerImage">
+                        <img src="`+ relatedProduct.imgSrc + `" width="100%">
+                    </div>
+                    <div class="containerInfo">
+                        <h4>`+ relatedProduct.name + `</h4>
+                        <p>Precio: `+ relatedProduct.currency + ` ` + relatedProduct.cost + `</p>
+                        <span>`+ relatedProduct.description + `</span>
+                    </div>
+                    <div class="verMas">
+                        <a href="product-info.html">
+                            <i class="fa fa-plus-square-o"></i>
+                        </a>
+                    </div>
+                </div>
+                `
+            }
+            document.getElementById("relatedProductsContainer").innerHTML = html;
+        }
+    })
+}
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    
+
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             vehicle = resultObj.data;
@@ -125,9 +159,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
             carSoldCountHTML.innerHTML = vehicle.soldCount; // Cargamos la cantidad de vehiculos vendidos
             carCategoryHTML.innerHTML = vehicle.category; // Cargamos la categoría a la que pertenece el vehiculo
             carCostHTML.innerHTML = vehicle.cost; // Cargamos el valor del vehículo.
-            
+
             //Muestro las imagenes en forma de galería
             showImagesGallery(vehicle.images);
+            showRelatedProduct(vehicle.relatedProducts);
         }
     })
 
