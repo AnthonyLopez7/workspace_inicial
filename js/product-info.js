@@ -10,6 +10,7 @@ function showImagesGallery(array) {
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
+        // armamos la estructura del html
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
@@ -17,7 +18,7 @@ function showImagesGallery(array) {
             </div>
         </div>
         `
-
+        // agregamos las imágenes al html
         document.getElementById("carImagesWrapper").innerHTML = htmlContentToAppend;
     }
 }
@@ -40,6 +41,7 @@ function showRating(array) {
             }
         }
 
+        // armamos la estructura del html
         html += `
             <div class="containerComments">
                 <div class="ratingDescription">
@@ -61,9 +63,9 @@ function addComents() {
     var commentary = document.getElementById("commentary").value; // Obtenemos el comentario ingresado en el textarea
     let valoration = document.getElementById("valoration").value; // Obtenemos la valoración del producto
     var userName = localStorage.getItem("user"); // Tomamos el nombre del usuario logeado desde el localStorage
-    // Tomamos fecha y hora actual
+    // definimos una variable para poder crear una nueva fecha y hora (con datos actuales)
     var actualDate = new Date();
-    // Tomamos dia, mes y año actual
+    // Tomamos día, mes y año actual
     var dia = actualDate.getDate();
     var mes = actualDate.getMonth();
     var anio = actualDate.getFullYear();
@@ -80,6 +82,7 @@ function addComents() {
         let html = "";
 
         let stars = "";
+        // ciclo para pintar solamente la cantidad correctas de estrellas
         for (let i = 1; i <= maxRating; i++) {
             if (i <= valoration) {
                 stars += '<i class="fa fa-star checked"></i>';
@@ -88,6 +91,7 @@ function addComents() {
             }
         }
 
+        // armamos la estructura del html
         html += `
             <div class="containerComments">
                 <div class="ratingDescription">
@@ -100,22 +104,25 @@ function addComents() {
                 </div>
             </div>
             `
-
+        // cargamos un nuevo comentario al html
         document.getElementById("newComments").innerHTML = html;
     }
 }
 
+// función para cargar productos relacionados
 function showRelatedProduct(relatedProductArray) {
+    // cargamos los datos de JSON
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productList = resultObj.data;
 
             let html = "";
-
+            // ciclo para cargar los productos relacionados en lista
             for (let i = 0; i < relatedProductArray.length; i++) {
                 let relatedProductPosition = relatedProductArray[i];
                 let relatedProduct = productList[relatedProductPosition];
 
+                // armamos la estructura del html
                 html += `
                 <div class="containerRelated">
                     <div class="containerImage">
@@ -134,6 +141,8 @@ function showRelatedProduct(relatedProductArray) {
                 </div>
                 `
             }
+
+            // cargamos un nuevo comentario al html
             document.getElementById("relatedProductsContainer").innerHTML = html;
         }
     })
@@ -141,7 +150,7 @@ function showRelatedProduct(relatedProductArray) {
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
+    // cargamos los datos de JSON
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             vehicle = resultObj.data;
@@ -166,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     })
 
+    // cargamos los datos de JSON
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             carRatinComments = resultObj.data;
