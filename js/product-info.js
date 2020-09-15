@@ -2,6 +2,10 @@ var vehicle = {};
 var carRatinComments = {};
 var maxRating = 5;
 
+// mostrar nombre de usario que inicio sesión
+var data = localStorage.getItem("user");
+document.getElementById("name").innerHTML = data
+
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";

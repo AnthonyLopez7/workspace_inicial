@@ -146,3 +146,34 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* menú deplegable */
+.dropdown {
+  display: flex;
+}
+.btnContainer {
+  background: transparent;
+  color: #a4b1ea;
+  border: none;
+}
+.btnContainer:hover {
+  background: transparent;
+  font-weight: bold;
+}
+.dropdown-menu {
+  padding: 0;
+}
+.dropdown-menu a {
+  padding: .5em;
+}
+.dropdown-menu a:hover {
+  font-weight: bold;
+  background: #ff616f;
+}
+.dropdown-menu div {
+  border-bottom: .2px solid #d61c6c;
+}
+#name {
+  margin-right: .7em;
+  color: #a4b1ea;
+}
