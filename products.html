@@ -10,7 +10,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
@@ -23,18 +24,25 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <!-- Menú desplegable -->
       <div class="dropdown">
         <button class="dropdown-toggle btnContainer" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <span id="name"></span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <div></div>
-          <a class="dropdown-item" href="cart.html">Carrito de compras</a>
-          <div></div>
-          <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+          <div>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          </div>
+          <div>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <a class="dropdown-item" href="cart.html">Carrito de compras</a>
+          </div>
+          <div>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+          </div>
         </div>
       </div>
     </div>

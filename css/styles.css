@@ -163,12 +163,23 @@ a.custom-card:hover {
 .dropdown-menu {
   padding: 0;
 }
-.dropdown-menu a {
-  padding: .5em;
+.dropdown-menu div {
+  display: flex;
+  padding: .5em .7em;
+}
+.dropdown-menu div:hover {
+  background: #ff616f;
+  cursor: pointer;
 }
 .dropdown-menu a:hover {
-  font-weight: bold;
   background: #ff616f;
+}
+.dropdown-menu i {
+  font-size: 1.3em;
+  margin-right: .5em;
+}
+.dropdown-menu a {
+  padding: 0
 }
 .dropdown-menu div {
   border-bottom: .2px solid #d61c6c;

@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             carCostHTML.innerHTML = vehicle.cost; // Cargamos el valor del vehículo.
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(vehicle.images);
+            // showImagesGallery(vehicle.images);
             showRelatedProduct(vehicle.relatedProducts);
         }
     })
