@@ -9,22 +9,47 @@ document.getElementById("name").innerHTML = data
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
+    let htmlContentCarousel = "";
 
     // ciclo para cargar todas las imágenes del vehículo
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
-        // armamos la estructura del html
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-        // agregamos las imágenes al html
-        document.getElementById("carImagesWrapper").innerHTML = htmlContentToAppend;
+        // condicional para mostrar solo una imágen dependiendo si selecciono next o prev
+        if (i == 0) {
+            htmlContentToAppend += `
+            <div class="carousel-item active">
+                <img src="`+ imageSrc + `" class="d-block w-100" alt="...">
+            </div>`
+        }
+        else {
+            htmlContentToAppend += `
+            <div class="carousel-item">
+                <img src="`+ imageSrc + `"" class="d-block w-100" alt="...">
+            </div>`
+        }
     }
+
+    // Creamos la estructura del carousel con las imágenes creadas con la condicional anterior
+    htmlContentCarousel += `
+            <div id="carouselExampleFade" class="carousel slide carousel-fade carousel" data-ride="carousel">
+                <div class="carousel-inner">
+                    `+ htmlContentToAppend + `
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        `
+
+    // agregamos las imágenes al html
+    document.getElementById("carImagesWrapper").innerHTML = htmlContentCarousel;
+    $('.carousel').carousel()
 }
 
 // Función para mostrar en lista nombre, comentario, valoración del producto y fecha en la que se hizo el comentario
@@ -174,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             carCostHTML.innerHTML = vehicle.cost; // Cargamos el valor del vehículo.
 
             //Muestro las imagenes en forma de galería
-            // showImagesGallery(vehicle.images);
+            showImagesGallery(vehicle.images);
             showRelatedProduct(vehicle.relatedProducts);
         }
     })
