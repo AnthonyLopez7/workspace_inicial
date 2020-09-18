@@ -152,7 +152,8 @@ a.custom-card:hover {
   display: flex;
 }
 .btnContainer {
-  background: transparent;
+  background: #ff616e36;
+  border-radius: 10px 10px 10px 10px;
   color: #a4b1ea;
   border: none;
 }

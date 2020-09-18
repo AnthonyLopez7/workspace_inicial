@@ -6,10 +6,6 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
-// mostrar nombre de usario que inicio sesión
-var data = localStorage.getItem("user");
-document.getElementById("name").innerHTML = data
-
 function sortCategories(criteria, array) {
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME) {
