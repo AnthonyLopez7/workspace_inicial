@@ -1,0 +1,133 @@
+#bodyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+}
+
+/* code in JS */
+.buyProductContainer {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5%;
+    box-shadow: 6px 6px 5px -5px rgba(213,64,92,0.75);
+}
+
+.imgNameContainer {
+    display: flex;
+}
+
+.imgContainer {
+    height: 100px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+}
+
+.nameCountContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2%;
+    
+}
+.nameContainer {
+    width: 300px;
+}
+.nameCountContainer p {
+    margin: 0;
+    padding: 0;
+}
+
+.costContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.productCount {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+}
+.productCount p {
+    margin-right: 2%;
+}
+
+/* shipping type */
+.shippingTypeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shippingTypeContainer h4 {
+    margin: 1% 0;
+}
+
+.shippingType {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+} 
+.shippingType form {
+    display: flex;
+    flex-direction: column;
+    box-shadow: -1px -8px 23px -11px rgba(213,64,92,0.75); 
+}
+/* fin - shipping type */
+
+/* Ubication Container */
+.ubicationContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3% 15%;
+    align-items: center;
+    background: #ff2e88;
+}
+.ubicationData {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.ubicationTitle {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+.ubicationContent {
+    height: 3em;
+    padding: 0 1%;
+    margin: 3.5% 0 1.5%;
+    width: 300px;
+}
+/* fin - Ubication Container */
+
+/* costos totales */
+.totalCostProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.infoContainer {
+    width: 31%;
+}
+.infoContainer p {
+    padding: 0;
+    margin: 0;
+}
+
+.totalPay {
+    display: flex;
+    margin-bottom: 5%;
+    padding: 0 2%;
+    justify-content: space-between;
+    box-shadow: 0px 9px 9px -10px rgba(0,0,0,0.75);
+}
+/* fin - costos totales */
