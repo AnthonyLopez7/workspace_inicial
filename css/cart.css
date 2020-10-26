@@ -16,6 +16,7 @@
 
 .imgNameContainer {
     display: flex;
+    width: 60%;
 }
 
 .imgContainer {
@@ -33,7 +34,7 @@
     
 }
 .nameContainer {
-    width: 300px;
+    width: 250px;
 }
 .nameCountContainer p {
     margin: 0;
@@ -42,8 +43,13 @@
 
 .costContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-end;
     margin: 1%;
+}
+
+.priceContainer {
+    height: 70%;
 }
 
 .productCount {
@@ -53,6 +59,18 @@
 }
 .productCount p {
     margin-right: 2%;
+}
+
+.productDeleteContainer {
+    display: flex;
+    height: 100%;
+}
+.iconDelete {
+    height: 31%;
+    cursor: pointer;
+}
+.iconDelete:hover {
+    font-weight: bold;
 }
 
 /* shipping type */
@@ -80,7 +98,7 @@
 /* Ubication Container */
 .ubicationContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     padding: 3% 15%;
     align-items: center;
@@ -90,6 +108,8 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
+    padding-bottom: 3%;
+    box-shadow: 1px 7px 7px -9px rgba(255,255,255,1);
 }
 
 .ubicationTitle {
@@ -98,6 +118,8 @@
     color: #fff;
     font-weight: 500;
 }
+
+
 
 .ubicationContent {
     height: 3em;
@@ -131,3 +153,140 @@
     box-shadow: 0px 9px 9px -10px rgba(0,0,0,0.75);
 }
 /* fin - costos totales */
+
+/* forma de pago */
+.payType {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 45% !important;
+}
+
+#showTypePay {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: 400;
+}
+
+.payType button {
+    margin-left: 7%;
+    background-color: #002042;
+    border-radius: inherit;
+    border: none;
+}
+.payType button:hover {
+    background-color: #77b1f0;
+    color: #000000;
+}
+
+.modalClose {
+    font-weight: bold !important;
+    color: #5a5a5a !important;
+    background: transparent !important;
+    border: 3px solid red !important;
+}
+.modalClose:hover {
+    background: rgba(252, 77, 77, 0.583) !important;
+}
+.modalConfirm {
+    font-weight: bold !important;
+    color: #5a5a5a !important;
+    background: transparent !important;
+    border: 3px solid #2b882b !important
+}
+.modalConfirm:hover {
+    background: #48c94893 !important;
+}
+
+.formPay {
+    display: flex;
+    flex-direction: column;
+}
+
+.optionsPay {
+    display: flex !important;
+    align-items: center;
+}
+
+.inputStyle {
+    margin-right: 3%;
+}
+
+.cardNumberDate {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardNumberContainer {
+    display: flex;
+    align-items: center;
+}
+
+.payTitle {
+    margin: 0; padding: 0;
+}
+.inputPay {
+    overflow: visible;
+    margin: 2.5% 0;
+    border-radius: 7px 7px 7px 7px;
+    border: .5px solid grey;
+}
+.validationCard {
+    display: flex;
+    justify-content: space-between;
+}
+.validationSelect {
+    width: 38%; 
+    height: 30px;
+    margin: 1% 0;
+    border-radius: 7px 7px 7px 7px;
+    border: .5px solid grey;
+}
+
+/* boton de compra */
+.containerButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+.button {
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid limegreen;
+    background: limegreen;
+    width: 31%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.button:hover, .buttonBuy:hover, .buyArrow:hover {
+    background: rgb(45, 175, 45);
+    border: 2px solid  rgb(45, 175, 45);
+    color: #fff;
+}
+
+.buyArrow {
+    margin: 0 5%;
+}
+
+.buttonBuy {
+    width: 90%;
+    height: 3.3em;
+    font-size: 1.3em;
+    border-left: 2px solid rgb(31, 118, 31);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    background: limegreen;
+}
+
+/* modal compra exitosa */
+.modalBodyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
