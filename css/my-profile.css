@@ -1,0 +1,133 @@
+.userDataContainer {
+    width: 100vw;
+    margin: 2% 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.containerProfile {
+    display: flex;
+    width: 55%;
+    padding: 1% 0;
+    background: rgb(225, 115, 115);
+    border-radius: 12px 12px 12px 12px;
+    z-index: 1;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.userImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userShowDate {
+    color: #fff !important;
+}
+
+.yourData {
+    color: #000000;
+}
+
+.iconEdit {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.iconEdit:hover {
+    transform: scale(1.07);
+}
+
+
+/* editar perfil */
+
+.containerEditProfile {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.formUserDate {
+    width: 45%;
+    max-width: 45%;
+    border: 2px solid #93BDED;
+    border-radius: 10px;
+    padding: 150px 5% 2%;
+    position: relative;
+    top: -130px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .3s ease-out;
+}
+
+.formUserDate.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.formUserDate label {
+    display: block;
+    color: #7d8994;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.formUserDate input {
+    margin-bottom: 15px;
+}
+
+.formUserDate input,
+.btnSave {
+    border: 2px solid #CED6E0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: .3s ease all;
+    border-radius: 5px;
+}
+
+.formUserDate input:hover {
+    border: 2px solid #93BDED;
+}
+
+.formUserDate input:focus {
+    outline: rgb(4,4,4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+.formUserDate .flexbox {
+    display: flex;
+}
+
+.formUserDate .flexbox .age {
+    width: 20%;
+    margin-right: 2%;
+}
+
+.formUserDate .flexbox .contact {
+    width: 100%;
+}
+
+.formUserDate .btnSave {
+    border: none;
+    padding: 10px;
+    font-size: 22px;
+    color: #fff;
+    background: rgb(225, 115, 115);
+    box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
+    cursor: pointer;
+}
+
+.formUserDate .btnSave:hover {
+    background: rgb(218, 67, 67);
+}
+
+/* footer */
+
+.footerContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
