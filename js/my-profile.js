@@ -5,17 +5,12 @@
 // función para abrir formulario para editar los datos del usuario
 function openFormEditProfile() {
     var buttonEdit = document.getElementById('buttonEdit'); //obtenemos el botón que abre el formulario para editar los datos del usuarios
-    // var buttonSaveData = document.getElementById('btnSaveData'); //obtenemos el botón que guarda los datos del formulario
     var formEditProfile = document.getElementById('formUserDate'); // obtenemos el formulario donde estaran los campos para completar los datos
 
     // evento para "abrir" el formulario para editar los datos
     buttonEdit.addEventListener('click', () => {
         formEditProfile.classList.toggle('active');
     });
-
-    // buttonSaveData.addEventListener('click', () => {
-    //     formEditProfile.classList.toggle('active');
-    // });
 }
 
 // functión para agregar algunas correctiones en los inputs de edad y contacto
@@ -27,7 +22,7 @@ function inputAgeAndContactCorrect() {
         let valorInputAge = e.target.value
 
         inputAge.value = valorInputAge
-            // utilizamos expreciones regulares para que el input de tarjeta de crédito se vea mas bonito
+            // utilizamos expreciones regulares para que el input de edad cumpla sus funciones un poco mejor
             //eliminamos espacios en blanco
             .replace(/\s/g, '')
             //eliminar las letras
@@ -38,11 +33,22 @@ function inputAgeAndContactCorrect() {
     // evento para escuchar que se escribe en el input de contacto
     inputContact.addEventListener('keyup', (e) => {
         let valorInputContact = e.target.value
-
+        
         inputContact.value = valorInputContact
-            // utilizamos expreciones regulares para que el input de tarjeta de crédito se vea mas bonito
-            //eliminar las letras
-            .replace(/\D/g, '');
+        // utilizamos expreciones regulares para que el input de contacto cumpla sus funciones un poco mejor
+        //eliminar las letras
+        .replace(/\D/g, '');
+    });
+
+    var inputEmail = document.getElementById('inputEmail');
+    // evento para escuchar que se escribe en el input de email
+    inputEmail.addEventListener('keyup', (e) => {
+        let valorInputEmail = e.target.value
+        
+        inputEmail.value = valorInputEmail
+        // utilizamos expreciones regulares para que el input de email cumpla sus funciones un poco mejor
+        //eliminamos espacios en blanco
+        .replace(/\s/g, '')
     });
 }
 
