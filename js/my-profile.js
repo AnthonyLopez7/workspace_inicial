@@ -85,7 +85,7 @@ function saveData() {
     localStorage.setItem("datosUsuario", JSON.stringify(userData)); //convertimos a un JSON los datos
     let saveLocal = JSON.parse(localStorage.getItem("datosUsuario")); // obtenemos datos de localStoraje y lo convertimos en texto con JSON.parse
 
-    if (nameUser.value == "" || surnameUser.value == "" || ageUser.value == "" || contactUser.value == "" || emailUser.value == "") {
+    if (nameUser.value == "" || surnameUser.value == "" || ageUser.value == "" || contactUser.value == "" || emailUser.value == "" || imageUser.value == "") {
         alert("Debe completar todos los campos para poder guardar la información")
     } else if (ageUser.value > 110 || ageUser.value < 18) {
         alert("Edad no válida");
