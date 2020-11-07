@@ -14,12 +14,12 @@ function sortCategories(criteria, array) {
         result = array.sort(function (a, b) {
             return a.cost - b.cost;
         });
-    // Ordenar de forma descendente por el costo
+        // Ordenar de forma descendente por el costo
     } else if (criteria === ORDER_DESC_BY_COST) {
         result = array.sort(function (a, b) {
             return b.cost - a.cost;
         });
-    // Ordenar por relevancia (cantidad de vendidos)
+        // Ordenar por relevancia (cantidad de vendidos)
     } else if (criteria === ORDER_DESC_BY_RELEVANCIA) {
         result = array.sort(function (a, b) {
             return b.soldCount - a.soldCount;
@@ -40,15 +40,15 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item-action mb-4 mt-2 col-md-4 col-sm-12">
+            <a href="product-info.html" class="list-group-item-action mb-4 mt-2 col-md-4 col-sm-12 itemsContainer">
                 <div class="card mb-4">
                     <img src="` + products.imgSrc + `" alt="Image of vehicle loading" class="image">
                 </div>
                 <div id="myDIV">
-                    <h4>`+ products.name + `</h4>
-                    <p>`+ products.description + `</p>
+                    <h4 class="filterName">`+ products.name + `</h4>
+                    <p class="filterDescription">`+ products.description + `</p>
                     <div class="d-flex justify-content-between" id="myDIV">
-                        <p>`+ products.currency + ` ` + products.cost + `</p>
+                        <span>`+ products.currency + ` ` + products.cost + `</span>
                         <label>` + products.soldCount + ` vendidos</label>
                     </div>
                 </div>
@@ -57,21 +57,26 @@ function showProductsList() {
         }
 
         document.getElementById("product_container").innerHTML = htmlContentToAppend;
-        filterProducts(products);
     }
 }
 
-function filterProducts(products) {
-    // obtenemos el el valor del input search y convertimos sus caracteres en mayúscula
-    inputFilter = document.getElementById("myInputSearch").value.toUpperCase();
+function filterProducts() {
+    let inputFilter = document.getElementById("myInputSearch"); // obtenemos el el valor del input search
+    let filter = inputFilter.value.toUpperCase()                // y convertimos sus caracteres en mayúscula
 
-    // ciclo para que al filtrar un vehículo aparezca en pantalla solamente el vehículo filtrado
-    for (var i = 0; i < products.length; i += 1) {
-        if (products[i].dataset.filterName.toUpperCase().includes(inputFilter)
-            || products[i].dataset.filterDesc.toUpperCase().includes(inputFilter)) {
-            products[i].parentNode.style.display = "block";
+    let productList = document.getElementById("product_container"); //obtenemos el contenedor principal de los items(ubicado en HTML)
+    let nameFilter = productList.getElementsByTagName("a"); //obtenemos los items
+    
+    // ciclo for para recorreer los items buscando si los nombres de los items
+    // son iguales a los ingresados en el input
+    // y devolver un resultado con los mismos
+    for (i = 0; i < nameFilter.length; i++) {
+        let name = nameFilter[i].getElementsByClassName("filterName")[0];
+        let textValue = name.textContent || name.innerHTML;
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+            nameFilter[i].style.display = "";
         } else {
-            products[i].parentNode.style.display = "none";
+            nameFilter[i].style.display = "none";
         }
     }
 }
@@ -87,7 +92,24 @@ function sortAndShowProducts(sortCriteria, categoriesArrays) {
 
     //Muestro las productos ordenadas
     showProductsList();
-    filterProducts(products)
+}
+
+// funccion con condicional para desplegar burger menu
+function openResponsiveFilter() {
+    var x = document.getElementById("filterResponsive");
+    if (x.className === "containerResponsive") {
+        x.className += "responsive";
+    } else {
+        x.className = "containerResponsive";
+    }
+}
+function openResponsiveMenu() {
+    var x = document.getElementById("navbarResponsive");
+    if (x.className === "navbarContainer") {
+        x.className += " responsiveNavbar";
+    } else {
+        x.className = "navbarContainer";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -151,7 +173,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     // Filtramos vehículos de acuerdo a los caracteres ingresados en el input search
-    document.getElementById("myInputSearch").addEventListener("keyup", function () {
-        filterProducts(products);
-    });
+    
 });

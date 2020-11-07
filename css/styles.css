@@ -158,7 +158,7 @@ a.custom-card:hover {
   border: none;
 }
 .btnContainer:hover {
-  background: transparent;
+  background: #ff616e9e;
   font-weight: bold;
 }
 .dropdown-menu {

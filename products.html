@@ -11,19 +11,26 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+    <div class="container headerContainer d-flex flex-column flex-md-row justify-content-between">
+      <a href="javascript:void(0);" class="iconBurgerMenu" onclick="openResponsiveMenu()">
+        <i class="material-icons" style="font-size:35px;color:#fff">menu</i>
+      </a>
+      <div class="navbarContainer" id="navbarResponsive">
+        <a href="home.html">Inicio</a>
+        <a href="categories.html">Categorías</a>
+        <a href="products.html">Productos</a>
+        <a href="sell.html">Vender</a>
+      </div>
       <!-- Menú desplegable -->
       <div class="dropdown">
         <button class="dropdown-toggle btnContainer" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -40,41 +47,53 @@
             <a class="dropdown-item" href="cart.html">Carrito de compras</a>
           </div>
           <div>
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <i class="material-icons" style="font-size:26px">exit_to_app</i>
             <a class="dropdown-item" href="index.html">Cerrar sesión</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-  <div>
-    <div class="filterContainer">
-      <div class="priceRangeFilter">
-        <div class="rangeFilterInputs">
-          <p>Precio:</p>
-          <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
-          <div class="separatorMinMax"></div>
-          <input class="form-control" type="number" placeholder="max." id="rangeFilterPriceMax">
-          <button class="btnFilters" id="rangeFilterCount">Filtrar</button>
-          <button class="btnFilters" id="clearRangeFilter">Limpiar</button>
-        </div>
-      </div>
-      <div class="searchAndFilter">
-        <input type="text" class="mySearch" id="myInputSearch" placeholder="Escribe aquí">
-        <form action="" class="formulario">
-          <div class="radio">
-            <p>Ordenar:</p>
 
-            <input type="radio" name="options" id="ascendente">
-            <label for="ascendente" id="sortAsc">Ascendente</label>
+  
+  <div class="containerProducts">
+    <a href="javascript:void(1);" class="icon" onclick="openResponsiveFilter()">
+      <i class='fas fa-filter' style='font-size:25px;color:#fff'></i><span>Filtros</span> 
+    </a>
+    <div class="containerResponsive" id="filterResponsive">
+      <div class="row menuResponsive">
+        <div class="priceOrder col-md-12 col-sm-12">
+          <input type="text" class="mySearch" id="myInputSearch" onkeyup="filterProducts()" placeholder="Escribe aquí">
+          <div class="row filterPriceOrder">
+            <div class="priceContainer">
+              <p class="priceOrderTitle">Precio:</p>
+              <div class="flex-box minMaxInput">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+                <div class="separatorMinMax"></div>
+                <input class="form-control" type="number" placeholder="max." id="rangeFilterPriceMax">
+              </div>
+              <div class="flex-box minMaxButtons">
+                <button class="btnFilters" id="rangeFilterCount">Filtrar</button>
+                <button class="btnFilters" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+            <div class="orderContainer">
+              <div action="" class="formulario">
+                <p class="priceOrderTitle">Ordenar:</p>
+                <div class="radio">
+                  <input type="radio" name="options" id="ascendente">
+                  <label for="ascendente" id="sortAsc">Ascendente</label>
 
-            <input type="radio" name="options" id="descendente">
-            <label for="descendente" id="sortDesc">descendente</label>
+                  <input type="radio" name="options" id="descendente">
+                  <label for="descendente" id="sortDesc">Descendente</label>
 
-            <input type="radio" name="options" id="relevancia">
-            <label for="relevancia" id="sortRelevancia">Relevancia</label>
+                  <input type="radio" name="options" id="relevancia">
+                  <label for="relevancia" id="sortRelevancia">Relevancia</label>
+                </div>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
 

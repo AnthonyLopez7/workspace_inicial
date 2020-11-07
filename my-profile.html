@@ -61,7 +61,7 @@
                     <div>
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                         <a class="dropdown-item" href="index.html">Cerrar sesión</a>
-                    </div>
+                    </div>userImageContainer
                 </div>
             </div>
         </div>
@@ -70,8 +70,8 @@
     <div class="userDataContainer">
         <div class="containerProfile">
             <div class="row">
-                <div class="col-md-2 col-sm-12">
-                    <div class="userImageContainer">
+                <div class="col-md-2 col-sm-12 prueba">
+                    <div id="userImageContainer" class="userImageContainer">
                         <i class="material-icons" style="font-size:170px;color:rgb(218, 218, 218)">account_box</i>
                     </div>
                 </div>
@@ -142,6 +142,8 @@
             <div class="group">
                 <label for="input-email ">E-mail</label>
                 <input type="text " id="inputEmail">
+                <label for="input-email ">URL Imagen</label>
+                <input type="text " id="inputImage">
             </div>
             <button id="btnSaveData" class="btnSave" onclick="saveData()">Guardar</button>
         </div>

@@ -63,7 +63,9 @@ function saveData() {
     let ageUser = document.getElementById('inputEdad');
     let contactUser = document.getElementById('inputContact');
     let emailUser = document.getElementById('inputEmail');
+    let imageUser = document.getElementById('inputImage');
 
+    let htmlImagen = "";
     // aqui se almacenan los datos que el usuario agrego al input
     let userData = {
         names: nameUser.value,
@@ -71,6 +73,7 @@ function saveData() {
         age: ageUser.value,
         contact: contactUser.value,
         email: emailUser.value,
+        image: imageUser.value
     }
 
     localStorage.setItem("datosUsuario", JSON.stringify(userData)); //convertimos a un JSON los datos
@@ -86,6 +89,7 @@ function saveData() {
         document.getElementById("spanAge").innerHTML = saveLocal.age //agregamos al HTML la edad del usuario que obtuvimos del localStorage
         document.getElementById("spanContact").innerHTML = saveLocal.contact //agregamos al HTML el contacto del usuario que obtuvimos del localStorage
         document.getElementById("spanEmail").innerHTML = saveLocal.email //agregamos al HTML el email del usuario que obtuvimos del localStorage
+        document.getElementById("userImageContainer").innerHTML = `<img src="`+ saveLocal.image + `" width="150px" border="0">` //agregamos al HTML la imagen del usuario que obtuvimos del localStorage
 
         var buttonSaveData = document.getElementById('btnSaveData'); //obtenemos el botón que guarda los datos del formulario
         var formEditProfile = document.getElementById('formUserDate'); // obtenemos el formulario donde estaran los campos para completar los datos
@@ -112,4 +116,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("spanAge").innerHTML = saveLocal.age //agregamos al HTML la edad del usuario que obtuvimos del localStorage
     document.getElementById("spanContact").innerHTML = saveLocal.contact //agregamos al HTML el contacto del usuario que obtuvimos del localStorage
     document.getElementById("spanEmail").innerHTML = saveLocal.email //agregamos al HTML el email del usuario que obtuvimos del localStorage
+    document.getElementById("userImageContainer").innerHTML = `<img src="`+ saveLocal.image + `" width="150px" border="0">` //agregamos al HTML la imagen del usuario que obtuvimos del localStorage
 });
